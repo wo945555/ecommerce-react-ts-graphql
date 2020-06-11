@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "specifications",
+  "info": {
+    "name": "Specifications"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "minimum_os": {
+      "type": "string"
+    },
+    "minimum_cpu": {
+      "type": "string"
+    },
+    "minimum_memory": {
+      "type": "string"
+    },
+    "minimum_storage": {
+      "type": "string"
+    },
+    "recommended_os": {
+      "type": "string"
+    },
+    "recommended_cpu": {
+      "type": "string"
+    },
+    "recommended_gpu": {
+      "type": "string"
+    },
+    "recommended_memory": {
+      "type": "string"
+    },
+    "recommended_storage": {
+      "type": "string"
+    },
+    "languages_supported": {
+      "type": "text"
+    },
+    "game": {
+      "model": "games",
+      "via": "specifications"
+    },
+    "platform": {
+      "type": "enumeration",
+      "enum": [
+        "windows",
+        "macOS"
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "defaultConnection": "default",
+  "connections": {
+    "default": {
+      "connector": "mongoose",
+      "settings": {
+        "database": "server",
+        "host": "cluster0-iy38q.mongodb.net",
+        "srv": "true",
+        "port": 27017,
+        "username": "wo945555",
+        "password": "949494ma"
+      },
+      "options": {
+        "authenticationDatabase": "",
+        "ssl": true
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+$height: 60px;
+$padding: 1px;
+$color: #fff;
+.nav-bar {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  height: $height;
+  line-height: $height;
+  padding: $padding;
+  background-color: #2a2a2a;
+  color: $color;
+}
+.nav-bar .signin-wrap {
+  height: $height;
+  line-height: $height;
+}
