@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from 'antd';
 import './Navbar.scss';
 
-export const Navbar:React.FC<{}> = (props) => {
+export const Navbar:React.FC<{}> = ({}) => {
 
   return (
     <div className="nav-bar">

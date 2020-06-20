@@ -71,10 +71,14 @@ const gameSubfields = `
   image {
     url
   }
-  specification {
+  carousel_figure{
+    url
+  }
+  specifications {
     platform
     minimum_os
     minimum_cpu
+    minimum_gpu
     minimum_memory
     minimum_storage
     recommended_os
@@ -100,4 +104,6 @@ const gameSubfields = `
     name
     key
   }
+  game_rating
+  about_content
 `

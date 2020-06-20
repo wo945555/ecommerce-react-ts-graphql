@@ -37,7 +37,7 @@ export const StoreHeaderDesktop:React.FC<Props> = (props) => {
         </Link>     
       </Col>}
       {items.length>0 && items.map(({ pathname, name }) => (
-        <Col span={1} key={pathname || 'discover'}>
+        <Col span={4} key={pathname || 'discover'}>
           <NavLink to={`/${pathname}`}
            className="store-header-nav"
            activeClassName="header-nav-selected"
@@ -46,7 +46,7 @@ export const StoreHeaderDesktop:React.FC<Props> = (props) => {
           </NavLink>
         </Col>
       ))}
-      <Col span={3} offset={(18 - items.length)} >
+      <Col span={3} offset={(18 - items.length*4)} >
         <Search
           className="store-header-search"
           placeholder="search"

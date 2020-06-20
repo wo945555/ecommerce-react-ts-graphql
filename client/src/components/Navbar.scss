@@ -1,17 +1,20 @@
-$height: 60px;
+@import '@/config/styles/_variables';
+
 $padding: 1px;
 $color: #fff;
 .nav-bar {
+  position: sticky;
+  top: 0;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
-  height: $height;
-  line-height: $height;
+  height: $navbarHeight;
+  line-height: $navbarHeight;
   padding: $padding;
   background-color: #2a2a2a;
   color: $color;
 }
 .nav-bar .signin-wrap {
-  height: $height;
-  line-height: $height;
+  height: $navbarHeight;
+  line-height: $navbarHeight;
 }

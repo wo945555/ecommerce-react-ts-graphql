@@ -10,7 +10,8 @@
   },
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "discription": {
       "type": "text"
@@ -61,18 +62,39 @@
       ]
     },
     "price": {
-      "type": "decimal"
+      "type": "decimal",
+      "required": true,
+      "unique": false
     },
     "discount_price": {
       "type": "decimal"
     },
     "specifications": {
-      "via": "game",
-      "collection": "specifications"
+      "collection": "specifications",
+      "via": "game"
     },
     "game_rating": {
-      "via": "games",
-      "model": "game-ratings"
+      "type": "enumeration",
+      "enum": [
+        "everyone",
+        "mature",
+        "teen"
+      ],
+      "required": true
+    },
+    "about_content": {
+      "type": "richtext"
+    },
+    "carousel_figure": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }

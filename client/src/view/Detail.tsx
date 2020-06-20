@@ -1,16 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react';
-import {  Link, useHistory, useLocation } from 'react-router-dom';
+import {  useHistory, useLocation } from 'react-router-dom';
 import './Details.scss';
-import { Row, Col, Input, Menu, Dropdown, Button, Drawer } from 'antd';
-import { DownOutlined, SearchOutlined } from '@ant-design/icons';
-import { ClickParam } from 'antd/lib/menu';
 import { classnames } from '../utils/classnames';
 import { ViewportContext } from '../App';
 import { StoreHeaderDesktop } from '../components/StoreHeaderDesktop';
 import { StoreHeaderMobile } from '../components/mobile/StoreHeaderMobile';
+import { GameMetaCard } from '../components/GameMetaCard';
 import { getGameById } from '../api/api';
 import { Game } from '../api/db-types';
-import { imgUrl } from '../config/envconfig';
 
 interface Item {
   pathname: string;
@@ -38,11 +35,26 @@ console.log(data.data)
   if(game) {
     navItems[0].name = (game as Game).name;
   } 
+
+  
   return (
-    <div className="details">
-      {navItems[0].name && ((viewport === 'desktop')  
+    <div id="details">
+      { navItems[0].name && ((viewport === 'desktop')  
       ? <StoreHeaderDesktop items={navItems} toback /> 
-      : <StoreHeaderMobile items={navItems} toback />)}
-    </div>    
+      : <StoreHeaderMobile items={navItems} toback />) }
+
+      <section className="groups">
+        <article className="group-wrapper">
+          <div className="group-left">
+            <div className={classnames('group-header', 'group-sticky')}>
+              <span>关于游戏</span>
+            </div>
+          </div>
+          <div className="group-content">
+            { game && <GameMetaCard game={game} /> }
+          </div>
+        </article>
+      </section>
+    </div>
   )
 }

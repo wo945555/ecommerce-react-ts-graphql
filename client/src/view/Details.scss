@@ -1,0 +1,64 @@
+@import '@/config/styles/_variables';
+
+#details .groups {
+  max-width: $contentMaxWidth;
+  padding-left: $contentPadding;
+  padding-right: $contentPadding;
+}
+@media screen and (max-width: 1024px) {
+  #details .groups {
+    max-width: $contentMaxWidth1024;
+    padding-left: $contentPadding1024;
+    padding-right: $contentPadding1024;
+  }
+}
+@media screen and (max-width: 768px) {
+  #details .groups {
+    max-width: $contentMaxWidth768;
+    padding-left: $contentPadding768;
+    padding-right: $contentPadding768 ;
+  }
+}
+
+#details .group-wrapper {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  width: $contentMaxWidth;
+}
+#details .group-left {
+  max-width: 350px;
+  width: 20vw;
+}
+#details .group-content {
+  flex: auto;
+  font-size: 1rem;
+  letter-spacing: 0;
+  line-height: 1.625;
+}
+@media screen and (max-width: 1000px) {
+  #details .group-wrapper {
+    flex-direction: column;
+  }
+  #details .group-left {
+    width: 100vw;
+    margin-bottom: 20px;
+  }
+  #details .group-content {
+    font-size: 0.88rem;
+    letter-spacing: 0.01rem;
+    line-height: 1.4;
+  }
+}
+
+#details .group-left .group-header { 
+  padding-right: 1.25rem;
+  font-size: 1.25rem;
+  letter-spacing: 0;
+  line-height: 1.25rem;
+}
+ 
+#details .group-left .group-sticky {
+  position: sticky;
+  top: $navbarHeight + $storeHeaderDHeight + $storeHeaderDPadding;
+}

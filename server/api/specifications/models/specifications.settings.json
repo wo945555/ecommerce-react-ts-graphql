@@ -40,8 +40,8 @@
       "type": "text"
     },
     "game": {
-      "model": "games",
-      "via": "specifications"
+      "via": "specifications",
+      "model": "games"
     },
     "platform": {
       "type": "enumeration",
@@ -49,6 +49,9 @@
         "windows",
         "macOS"
       ]
+    },
+    "minimum_gpu": {
+      "type": "string"
     }
   }
 }

@@ -1,31 +1,31 @@
 $labelHeight: 1em;
 
 // .header-wrap
-.store-header {
+.store-header-m {
   position: relative;
   overflow: hidden;
 }
-.store-header .header-label {
+.store-header-m .header-label {
   width: 100%;
   font-weight: 500;
   margin-left: 0.9em;
 }
 
-.store-header .header-search-drawer {
+.store-header-m .header-search-drawer {
   position: absolute;
   top: -10px;
   width: 100vw;
 }
-.store-header .header-search-drawer .ant-drawer-close {
+.store-header-m .header-search-drawer .ant-drawer-close {
   position: absolute;
   top: 9px;
 }
 @media screen and (max-width: 450px) {
-  .store-header .header-search-drawer .ant-drawer-close {
+  .store-header-m .header-search-drawer .ant-drawer-close {
     right: -9px;
   }
 }
-.store-header .header-search {
+.store-header-m .header-search {
   width: 90%;
 }
 

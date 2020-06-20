@@ -69,7 +69,7 @@ export const StoreHeaderMobile:React.FC<Props> = (props) => {
   }
 
   return (
-    <div className="store-header">
+    <div className="store-header-m">
       <Row className="header-wrap">
         <Col span={20} offset={2} className="header-label-wrap">
           <Dropdown overlay={menu}>

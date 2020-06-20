@@ -5,7 +5,8 @@ export interface Game {
   _id: ID;
   name: string;
   discription: string;
-  image: UploadFile;
+  image: UploadFile; 
+  carousel_figure: UploadFile[];
   specifications?: Specification[];
   developer?: string;
   release_date?: string;
@@ -18,11 +19,10 @@ export interface Game {
   categories: Category[]
   tags: Tag[];
   game_rating:  GameRating;
+  about_content: string;
 }
 
-
 export type UploadFile = {
-  _id: ID;
   url: string;
   createdAt?: DateTime;
   updatedAt?: DateTime;
@@ -71,8 +71,4 @@ export type Category = {
   games?: Game[];
 }
 
-export type GameRating = {
-  name: Rating;
-  games?: Game[];
-}
-export type Rating = 'everyone' | 'mature' | 'teen';
+export type GameRating = 'everyone' | 'mature' | 'teen';
