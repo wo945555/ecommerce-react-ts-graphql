@@ -1,37 +1,37 @@
-#gameMeta .meta-items {
+.gameMeta .meta-items {
   display: grid;
   grid-template-columns: 42% 42% 16%;
   grid-template-rows: 75px 100px;
   margin-bottom: 35px;
 }
 @media screen and (max-width: 1280px) {
-  #gameMeta .meta-items {
+  .gameMeta .meta-items {
     grid-template-columns: 40% 40% 20%;
   }
 }
 @media screen and (max-width: 1024px) {
-  #gameMeta .meta-items {
+  .gameMeta .meta-items {
     grid-template-columns: 50% 50%;
     grid-template-rows: 65px 65px 65px;
   }
 }
 
-#gameMeta .meta-item {
+.gameMeta .meta-item {
   margin: 0 18px 30px 18px;
 }
 
-#gameMeta .meta-label {
+.gameMeta .meta-label {
   opacity: 0.6;
 }
-#gameMeta .meta-data {
+.gameMeta .meta-data {
   margin-top: 0.31rem;
   line-height: 1.25rem;
 }
 
-#gameMeta .about-content {
+.gameMeta .about-content {
   padding: 15px;
 }
 
-#gameMeta .about-content img{
+.gameMeta .about-content img{
   max-width: 100%;
 }

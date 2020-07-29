@@ -4,11 +4,13 @@ $labelHeight: 1em;
 .store-header-m {
   position: relative;
   overflow: hidden;
+  z-index: 3;
 }
 .store-header-m .header-label {
   width: 100%;
-  font-weight: 500;
-  margin-left: 0.9em;
+  text-align:center;
+  font-size: 0.9rem;
+  padding: 0.9rem 0;
 }
 
 .store-header-m .header-search-drawer {
@@ -22,7 +24,7 @@ $labelHeight: 1em;
 }
 @media screen and (max-width: 450px) {
   .store-header-m .header-search-drawer .ant-drawer-close {
-    right: -9px;
+    right: -0.5rem;
   }
 }
 .store-header-m .header-search {
@@ -32,13 +34,12 @@ $labelHeight: 1em;
 .header-menu .header-menu-item {
   width: 100vw;
   text-align: center;
-  margin-left: -1em;
+  margin-left: -1rem;
   font-size: 0.8rem;
 }
 .header-menu .toback { 
   position: relative;
-  left: 1em;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
   padding-top: 1rem;
 }
 .header-menu .toback::before {

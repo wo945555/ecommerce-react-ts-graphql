@@ -4,6 +4,9 @@ export const EVERYONE_IMG = process.env.PUBLIC_URL + '/images/everyone.jpg';
 export const MATURE_IMG = process.env.PUBLIC_URL + '/images/mature.png';
 export const TEEN_IMG = process.env.PUBLIC_URL + '/images/teen.jpg';
 
-export const AFFIX_NAV_TOP = 0;
-export const AFFIX_HEADER_TOP = AFFIX_NAV_TOP + 60;
-export const AFFIX_CONTENT_TOP = AFFIX_HEADER_TOP + 62;
+export const openCriticRatingDetail = {
+  weak: { percent: 25, name: '薄弱' },
+  fair: {  percent: 50, name: '一般' },
+  strong: { percent: 75, name: '良好' },
+  mighty: { percent: 100,  name: '超棒' }
+}

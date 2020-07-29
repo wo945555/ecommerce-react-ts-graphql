@@ -1,12 +1,12 @@
-@import '@/config/styles/_variables';
-
 .store-header {
+  position: -webkit-sticky;
   position: sticky;
   top: $navbarHeight;
   height: $storeHeaderDHeight;
   padding: $storeHeaderDPadding;
   text-align: center;
   background-color: $globleBgColor;
+  z-index: 3;
 }
 
 .store-header-search {

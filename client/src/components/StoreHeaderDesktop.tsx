@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Link, NavLink, useHistory } from 'react-router-dom';
+import {  Link, NavLink, useHistory, useLocation } from 'react-router-dom';
 import './StoreHeaderDesktop.scss';
 import { Row, Col, Input } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
@@ -22,7 +22,9 @@ export const StoreHeaderDesktop:React.FC<Props> = (props) => {
   const { defaultValue, onSearch, items, toback } = props; 
   let history = useHistory();
 
-  const defaultSearch = (val:string):void => {
+
+
+  const defaultSearch = (val:string) => {
     if(!val) return;
     history.push('/browse', {query: val});
   }
@@ -37,8 +39,8 @@ export const StoreHeaderDesktop:React.FC<Props> = (props) => {
         </Link>     
       </Col>}
       {items.length>0 && items.map(({ pathname, name }) => (
-        <Col span={4} key={pathname || 'discover'}>
-          <NavLink to={`/${pathname}`}
+        <Col span={4} key={pathname.replace('/', '') || 'discover'}>
+          <NavLink to={`${pathname}`}
            className="store-header-nav"
            activeClassName="header-nav-selected"
            exact>

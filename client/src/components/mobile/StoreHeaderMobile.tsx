@@ -3,7 +3,6 @@ import {  Link, useHistory, useLocation } from 'react-router-dom';
 import './StoreHeaderMobile.scss';
 import { Row, Col, Input, Menu, Dropdown, Button, Drawer } from 'antd';
 import { DownOutlined, SearchOutlined } from '@ant-design/icons';
-import { ClickParam } from 'antd/lib/menu';
 
 const { Search } = Input;
 
@@ -20,39 +19,36 @@ interface Props {
 
 export const StoreHeaderMobile:React.FC<Props> = (props) => {
   const { defaultValue, onSearch, items, toback } = props;
-  const location = useLocation();
+  const { pathname: path } = useLocation();
   let history = useHistory();
 
   //Navigation Menu
-  const [ select, setSelect ] = useState('');
+  const [ selected, setSelected ] = useState('');
 
   useEffect(() => {
-    const getCurrentSelect = (_pathname:string) => {
-      if(_pathname === '') {
-        return setSelect('探索');
-      }
-      const selectVal = items.find(({pathname})=> (pathname === _pathname));
-      selectVal && setSelect(selectVal.name);
+    const getCurrentSelect = (path:string) => {
+      const selectVal = items.find(({pathname})=> (pathname === path));
+      selectVal && setSelected(selectVal.name);
     }
-
-    const _pathname = location.pathname.replace('/', '');
-
-    getCurrentSelect(_pathname);
-  }, [location.pathname, items]);
+    
+    getCurrentSelect(path);
+  }, [path, items]);
 
   const menu:JSX.Element = (
     <Menu className="header-menu">
       {items.length>0 && items.map(({ pathname, name }) => (
-        <Menu.Item key={pathname || 'discover'}>
-          <Link to={`/${pathname}`}> 
+        <Menu.Item key={pathname.replace('/', '') || 'discover'}>
+          <Link to={pathname}> 
             <h2 className="header-menu-item">{name}</h2>
           </Link>
         </Menu.Item>
       ))}
       {toback && 
-        <Link to='/'> 
-          <h2 className="header-menu-item toback">返回商城</h2>
-        </Link>
+        <Menu.Item key={'discover'}>
+          <Link to='/'> 
+            <h2 className="header-menu-item toback">返回商城</h2>
+          </Link>
+        </Menu.Item>
       }
     </Menu>
   )
@@ -70,17 +66,17 @@ export const StoreHeaderMobile:React.FC<Props> = (props) => {
 
   return (
     <div className="store-header-m">
-      <Row className="header-wrap">
+      <Row align="middle" className="header-wrap">
         <Col span={20} offset={2} className="header-label-wrap">
-          <Dropdown overlay={menu}>
+          <Dropdown overlay={menu} trigger={['click']}>
             <h2 className="header-label"> 
-              <span>{select} </span>
+              <span>{selected} </span>
               <DownOutlined />
             </h2>
           </Dropdown>        
         </Col>
         
-        <Col span={2} >
+        <Col span={2}>
           <Button shape="circle"
            icon={<SearchOutlined />}
            onClick={() => showDrawer()} />

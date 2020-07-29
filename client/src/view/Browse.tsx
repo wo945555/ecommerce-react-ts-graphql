@@ -21,10 +21,10 @@ export const Browse:React.FC<{}> = () => {
   const [ loadingGames, setLoadingGames ] = useState<boolean>(false);
 
   const navItems = [{
-    pathname:'',
+    pathname:'/',
     name:'探索'
   },{
-    pathname:'browse',
+    pathname:'/browse',
     name:'浏览'
   }]
 

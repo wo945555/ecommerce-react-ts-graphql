@@ -1,0 +1,15 @@
+.specifications {
+  padding: 35px 60px;
+  background-color: #262626;
+  font-size: 1rem;
+}
+@media screen and (max-width: 1280px) {
+  .specifications {
+    padding: 0;
+  }
+}
+
+.specifications .specification-label {
+  margin-top: 20px;
+  opacity: 0.6
+}

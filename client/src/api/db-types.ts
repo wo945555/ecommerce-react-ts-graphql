@@ -13,7 +13,7 @@ export interface Game {
   publisher?: string;
   critics_recommend?: number;
   top_critic_average_strong?: number;
-  open_critic_rating?: number;
+  open_critic_rating?:  OpenCriticRating;
   price?: number;
   discount_price?: number;
   categories: Category[]
@@ -45,6 +45,7 @@ export type Specification = {
   platform: Platform;
   minimum_os?: string;
   minimum_cpu?: string;
+  minimum_gpu?: string;
   minimum_memory?: string;
   minimum_storage?: string;
   recommended_os?: string;
@@ -71,4 +72,5 @@ export type Category = {
   games?: Game[];
 }
 
+export type OpenCriticRating = 'weak' | 'fair' | 'strong' | 'mighty';
 export type GameRating = 'everyone' | 'mature' | 'teen';
