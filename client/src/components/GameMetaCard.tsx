@@ -44,7 +44,9 @@ export const GameMetaCard:React.FC<Props> = (props) => {
         <div className="meta-item"> 
           <span className="meta-label">评级</span>
           <div className="meta-data">
-             <img src={matchRatingUrl(game_rating)} height={(viewport === 'desktop')? 70: 50}></img>      
+             <img src={matchRatingUrl(game_rating)}
+              height={(viewport === 'desktop')? 70: 50}
+              alt={game_rating}></img>      
           </div>
         </div>
         <div className="meta-item"> 

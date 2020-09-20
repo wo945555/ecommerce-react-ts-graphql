@@ -1,40 +1,50 @@
 .store-header {
-  position: -webkit-sticky;
-  position: sticky;
+  @include css3(position, sticky);
   top: $navbarHeight;
   height: $storeHeaderDHeight;
-  padding: $storeHeaderDPadding;
+  padding: $storeHeaderDPadding $contentPadding;
   text-align: center;
   background-color: $globleBgColor;
   z-index: 3;
-}
+  @include clearfix;
 
-.store-header-search {
-  width: 70%;
-}
+  @include tablet {
+    padding: $storeHeaderDPadding $contentPadding1024;
+  }
 
-.store-header h2 {
-  font-size: 14px;
-}
+  h2 {
+    font-size: 14px;
+    line-height: $storeHeaderDHeight - 2*$storeHeaderDPadding;
+  }
 
-.store-header-nav h2 {
-  opacity: 0.4;
-}
-.store-header-nav:hover h2 {
-  opacity: 1;
-}
+  .store-header-nav {
+    float: left;
+    @include css3(display, flex);
+    
+    .nav-item {
+      margin-right: 30px;
 
-.store-header-nav .anticon {
-  -webkit-transition: transform 125ms ease-in-out;
-  -ms-transition: transform 125ms ease-in-out;
-  transition: transform 125ms ease-in-out;
-}
-.store-header-nav:hover .anticon {
-  -webkit-transform: scale(0.9) translateX(-5px);
-  -ms-transform: scale(0.9) translateX(-5px);
-  transform: scale(0.9) translateX(-5px);
-}
-.header-nav-selected h2 {
-  opacity: 1;
-  color: #fff;
+      h2 {
+        opacity: 0.4;
+      }
+      &:hover h2, .header-nav-selected  h2{
+        opacity: 1;
+      }
+    }
+
+    .anticon {
+      @include css3(transition, transform 125ms ease-in-out);
+    }
+    &:hover .anticon {
+      @include css3(transform, scale(0.9) translateX(-5px));
+    }
+  }
+
+  .store-header-search {
+    float: right;
+    display: flex;
+    align-items: center;
+    width: 210px;
+    height: $storeHeaderDHeight - 2*$storeHeaderDPadding; 
+  }
 }

@@ -1,15 +1,21 @@
 .specifications {
   padding: 35px 60px;
   background-color: #262626;
-  font-size: 1rem;
-}
-@media screen and (max-width: 1280px) {
-  .specifications {
-    padding: 0;
-  }
-}
+  font-size: $fontSizeD;
 
-.specifications .specification-label {
-  margin-top: 20px;
-  opacity: 0.6
+  @media screen and (max-width: 1280px) {
+    padding: px2rem(26);
+  }
+  @include tablet {
+    font-size: $fontSizeM;
+  }
+
+  .specification-label {
+    margin-top: 20px;
+    opacity: 0.6
+  }
+
+  .specification-cell {
+    padding: 0 30px 0 0;
+  }
 }

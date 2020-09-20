@@ -1,10 +1,38 @@
+.browse-content {
+  @include css3(display, flex);
+  align-content: space-around;
+  padding-left: $contentPadding;
+  padding-right: $contentPadding;
+
+  @include tablet {
+    padding-left: $contentPadding1024;
+    padding-right: $contentPadding1024;
+  }
+  @include phone {
+    padding-left: $contentPadding768;
+    padding-right: $contentPadding768;
+  }
+
+}
 .browse-card-wrap {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 20px;
-}
-.browse-card-wrap .browse-card {
-  width: 220px;
-  height: 440x;
-  margin: 20px;
+
+  .browse-card {
+    width: 18%;
+    height: 440x;
+    margin: 15px 30px 15px 0;
+  
+    @media screen and (max-width: 1600px) {
+      width: 23%;
+    }
+    @include phone {
+      width: 45%;
+      margin: px2rem(5);
+    }
+
+    img:hover {
+      @include css3(filter, contrast(1.2));
+    }
+  }
 }

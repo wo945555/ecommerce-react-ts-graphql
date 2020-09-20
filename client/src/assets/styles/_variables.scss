@@ -1,15 +1,14 @@
 $globleBgColor: #1C1C1C;
 $primaryBgColor: #262626;
+$color: #fff;
+
+$fontSizeD: 16px;
+$fontSizeM: 0.37rem;
 
 $contentPadding: 100vw/8;
-$contentMaxWidth: calc(1600px + $contentPadding*2);
-
 $contentPadding1024: 100vw/24;
-$contentMaxWidth1024: calc(1600px + $contentPadding1024*2);
-
 $contentPadding768: 100vw/12;
-$contentMaxWidth768: calc(1600px + $contentPadding768*2);
 
-$navbarHeight: 60px;
+$navbarHeight: 55px;
 $storeHeaderDHeight: 80px;
 $storeHeaderDPadding: 10px;

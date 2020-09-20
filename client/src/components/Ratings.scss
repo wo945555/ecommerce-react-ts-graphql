@@ -2,17 +2,18 @@
   display: flex;
   display: -webkit-flex;
   justify-content: flex-start;
-}
 
-.ratings .ratings-item {
-  margin-right: 50px;
-  text-align: center;
-}
-
-@media screen and (max-width: 768px) {
-  .ratings .ratings-item {
-    flex: 0 1 auto;
-    margin-right: 30px;
+  .ratings-item {
+    margin-right: 50px;
     text-align: center;
+
+    @include phone {
+      flex: 0 1 auto;
+      margin-right: px2rem(25);
+    }
+
+    .ratings-item-title {
+      margin-top: px2rem(8);
+    }
   }
 }

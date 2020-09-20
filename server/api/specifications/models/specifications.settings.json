@@ -52,6 +52,9 @@
     },
     "minimum_gpu": {
       "type": "string"
+    },
+    "name": {
+      "type": "string"
     }
   }
 }

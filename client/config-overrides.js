@@ -19,7 +19,7 @@ module.exports = override(
         loader: require.resolve('sass-resources-loader'),
         options: {
           resources: [
-            path.resolve(__dirname, './src/assets/styles/_variables.scss')
+            path.resolve(__dirname, './src/assets/styles/globle.scss')
           ]
         }
       });

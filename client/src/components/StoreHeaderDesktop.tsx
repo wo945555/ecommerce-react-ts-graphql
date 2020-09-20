@@ -1,7 +1,7 @@
 import React from 'react';
-import {  Link, NavLink, useHistory, useLocation } from 'react-router-dom';
+import {  Link, NavLink, useHistory } from 'react-router-dom';
 import './StoreHeaderDesktop.scss';
-import { Row, Col, Input } from 'antd';
+import { Input } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
 
 const { Search } = Input;
@@ -30,27 +30,28 @@ export const StoreHeaderDesktop:React.FC<Props> = (props) => {
   }
 
   return (
-    <Row className="store-header">
-      {toback && <Col span={2}>
-        <Link to='/' className="store-header-nav">
-          <h2>
-            <LeftOutlined /> 返回商城
-          </h2>
-        </Link>     
-      </Col>}
-      {items.length>0 && items.map(({ pathname, name }) => (
-        <Col span={4} key={pathname.replace('/', '') || 'discover'}>
-          <NavLink to={`${pathname}`}
-           className="store-header-nav"
-           activeClassName="header-nav-selected"
-           exact>
-            <h2>{name}</h2>
-          </NavLink>
-        </Col>
-      ))}
-      <Col span={3} offset={(18 - items.length*4)} >
+    <nav className="store-header">
+      <ul className="store-header-nav">
+        {toback && <li className="nav-item">
+          <Link to='/'>
+            <h2>
+              <LeftOutlined /> 返回商城
+            </h2>
+          </Link>     
+        </li>}
+        {items.length>0 && items.map(({ pathname, name }) => (
+          <li className="nav-item" key={pathname.replace('/', '') || 'discover'}>
+            <NavLink to={`${pathname}`}
+            activeClassName="header-nav-selected"
+            exact>
+              <h2>{name}</h2>
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+      
+      <div className="store-header-search">
         <Search
-          className="store-header-search"
           placeholder="search"
           defaultValue={defaultValue}
           allowClear={true}
@@ -58,7 +59,7 @@ export const StoreHeaderDesktop:React.FC<Props> = (props) => {
             ? (val) => onSearch(val)
             : (val) => defaultSearch(val)}
         />
-      </Col>          
-    </Row>
+      </div>          
+    </nav>
   )
 }

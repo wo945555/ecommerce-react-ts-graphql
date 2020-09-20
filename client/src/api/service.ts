@@ -1,8 +1,9 @@
 import axios from 'axios'
-import { baseUrl} from '../config/envconfig'
+import { baseUrl } from '../config/envconfig'
+import { TIME_OUT } from '../config/constant'
 
 export const Service = axios.create({
-  timeout: 5000, 
+  timeout: TIME_OUT, 
   baseURL: baseUrl,
   headers: {
     'Content-Type': 'application/json;charset=UTF-8'
@@ -14,8 +15,8 @@ export const Service = axios.create({
     host: '127.0.0.1',
     port: 1337,
     auth: {
-      username: 'wo945555',
-      password: '949494ma'
+      username: 'a1234',
+      password: 'a12344321'
     }
   }
 })

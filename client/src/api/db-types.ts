@@ -16,7 +16,7 @@ export interface Game {
   open_critic_rating?:  OpenCriticRating;
   price?: number;
   discount_price?: number;
-  categories: Category[]
+  categories: Category[];
   tags: Tag[];
   game_rating:  GameRating;
   about_content: string;
@@ -54,7 +54,6 @@ export type Specification = {
   recommended_memory?: string;
   recommended_storage?: string;
   languages_supported?: string;
-  games?: Game[];
 }
 
 export type Platform = 'windows' | 'macOS';
@@ -63,7 +62,6 @@ export type Tag = {
   _id?: ID;
   name: string;
   key: string;
-  games?: Game[];
 }
 
 export type Category = {

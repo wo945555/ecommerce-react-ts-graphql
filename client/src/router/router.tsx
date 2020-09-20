@@ -2,12 +2,12 @@ import * as React from 'react';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import { Navbar } from '../components/Navbar'
 
-import{ Discover } from '../view/Discover'
+//import{ Discover } from '../view/Discover'
 import{ Browse } from '../view/Browse'
 import { Detail } from '../view/Detail'
-import { Signin } from '../components/Signin';
-import { Signup } from '../components/Signup';
-import { Checkout } from '../components/Checkout';
+// import { Signin } from '../components/Signin';
+// import { Signup } from '../components/Signup';
+// import { Checkout } from '../components/Checkout';
 
 
 export type RouteComponentType = {

@@ -14,7 +14,7 @@ export const Ratings:React.FC<Props> = (props) => {
   const { critics_recommend, top_critic_average_strong, open_critic_rating } = game;
 
   const viewport  = useContext(ViewportContext);
-  const progressWith = (viewport === 'desktop')? 100: 80;
+  const progressWith = (viewport === 'desktop')? 100: 75;
   return(
     <div className="ratings">
       { critics_recommend && <div className="ratings-item">

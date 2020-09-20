@@ -1,57 +1,70 @@
-$labelHeight: 1em;
-
-// .header-wrap
 .store-header-m {
   position: relative;
-  overflow: hidden;
-  z-index: 3;
-}
-.store-header-m .header-label {
   width: 100%;
-  text-align:center;
-  font-size: 0.9rem;
-  padding: 0.9rem 0;
-}
+  height: $storeHeaderDHeight;
+  overflow: hidden;
+  background-color: $globleBgColor;
+  font-size: px2rem(14);
+  z-index: 3;
 
-.store-header-m .header-search-drawer {
-  position: absolute;
-  top: -10px;
-  width: 100vw;
-}
-.store-header-m .header-search-drawer .ant-drawer-close {
-  position: absolute;
-  top: 9px;
-}
-@media screen and (max-width: 450px) {
-  .store-header-m .header-search-drawer .ant-drawer-close {
-    right: -0.5rem;
+  .header-label-wrap {
+    height: 100%;
+
+    .header-label {
+      width: 100%;
+      text-align:center;
+      line-height:  $storeHeaderDHeight;
+
+      .anticon {
+        font-size: px2rem(9);
+      }
+    }
+  }
+
+  .header-search-icon {
+    @include abs-vertical-center;
+    right: px2rem(5);
+  }
+  .header-search-drawer {
+    position: absolute;
+    .header-search {
+      width: 90%;
+    }
+
+    .ant-drawer-close {
+      margin-top: px2rem(8);
+      margin-right: px2rem(3);
+    }
   }
 }
-.store-header-m .header-search {
-  width: 90%;
-}
 
-.header-menu .header-menu-item {
-  width: 100vw;
-  text-align: center;
-  margin-left: -1rem;
-  font-size: 0.8rem;
-}
-.header-menu .toback { 
+.header-menu {
   position: relative;
-  padding-bottom: 2rem;
-  padding-top: 1rem;
-}
-.header-menu .toback::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-  width: 0.63rem;
-  height: 0.06rem;
-  background-color: #535353;
+  top: px2rem(-15);
+  li {
+    padding: 5px 0;
+  }
+  .header-menu-item {
+    width: 100vw;
+    text-align: center;
+    text-indent: px2rem(-9);
+  }
+
+  .toback { 
+    position: relative;
+    top: px2rem(10);
+    display: flex;
+    flex-direction: column;
+    padding: px2rem(10);
+    
+    &:before {
+      content: ' ';
+      display: block;
+      @include abs-horizontal-center;
+      top: px2rem(-5);
+      width: px2rem(11);
+      height: px2rem(1);
+      background-color: #535353;
+    }
+  }
 }

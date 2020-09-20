@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, useRef, Fragment } from 'react';
-import {  useHistory, useLocation } from 'react-router-dom';
-import './Details.scss';
+import {  useLocation } from 'react-router-dom';
+import './Detail.scss';
 import { classnames } from '../utils/classnames';
 import { ViewportContext } from '../App';
 import { StoreHeaderDesktop } from '../components/StoreHeaderDesktop';
@@ -72,38 +72,38 @@ export const Detail:React.FC<{}> = () => {
       const { top } = articleRefs.current[0].getBoundingClientRect();
       setInitTop(top);
     }
-  }, [articleRefs.current[0]])
-
-  const handleScroll = (e:Event) => {
-    let ticking:boolean = false;
-    if(!ticking) {
-      window.requestAnimationFrame(() => {
-        const els = articleRefs.current;
-        if(els.length > 0){
-          const index = els.findIndex((el) => isCurrentSection(el));
-          els.forEach((el) => isCurrentSection(el));
-          setStickyIndex(index);
-        }
-        
-        ticking = false;
-      })
-    }
-    ticking = true;
-  }
-  const isCurrentSection = (el: Element) => {
-    const { top, bottom } = el.getBoundingClientRect();
-    return (top - initTop <= 0) && ((bottom - 80) - initTop >= 0);
-  }
+  }, [])
 
   useEffect(() => {
-    (viewport === 'desktop') && window.addEventListener('scroll', handleScroll);
+    const isCurrentSection = (el: Element) => {
+      const { top, bottom } = el.getBoundingClientRect();
+      return (top - initTop <= 0) && ((bottom - 80) - initTop >= 0);
+    }
+    const handleScroll = (e:Event) => {
+      let ticking:boolean = false;
+      if(!ticking) {
+        window.requestAnimationFrame(() => {
+          const els = articleRefs.current;
+          if(els.length > 0){
+            const index = els.findIndex((el) => isCurrentSection(el));
+            els.forEach((el) => isCurrentSection(el));
+            setStickyIndex(index);
+          }
+          
+          ticking = false;
+        })
+      }
+      ticking = true;
+    }
+
+    (viewport !== 'phone') && window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     }
   }, [viewport, initTop])
   return (
     <div id="details">
-      { navItems[0].name && ((viewport === 'desktop')  
+      { navItems[0].name && ((viewport !== 'phone')  
       ? <StoreHeaderDesktop items={navItems} toback /> 
       : <StoreHeaderMobile items={navItems} toback />) }
 
@@ -111,7 +111,7 @@ export const Detail:React.FC<{}> = () => {
         { detailItems.map(({key, header, children}, index) =>
          <article className={classnames(
             'group-wrapper',
-            {'group-sticky': (viewport === 'desktop') && (stickyIndex === index)})}
+            {'group-sticky': (viewport !== 'phone') && (stickyIndex === index)})}
            key={key}
            ref={el => articleRefs.current[index] = (el as HTMLElement)}>
             <div className="group-left">

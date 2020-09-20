@@ -1,0 +1,56 @@
+#details .groups{
+  padding-left: $contentPadding;
+  padding-right: $contentPadding;
+  overflow: hidden;
+
+  @include tablet {
+    padding-left: $contentPadding1024;
+    padding-right: $contentPadding1024;
+  }
+  @include phone {
+    padding-left: $contentPadding768;
+    padding-right: $contentPadding768;
+  }
+
+  .group-wrapper {
+    @include css3(display, flex);
+    flex-direction: row;
+    margin-bottom: 60px;
+
+    @include phone {
+      flex-direction: column;
+    }
+  }
+  .group-left {
+    flex: none;
+    max-width: 240px;
+    width: 15%;
+    font-size: 20px;
+    color: $color;
+    @include tablet {
+      font-size: px2rem(18);
+    }
+    @include phone {
+      width: 100vw;
+      margin-bottom: px2rem(20);
+      font-size: px2rem(16);
+    }
+  }
+  .group-content {
+    width: 100%;
+    font-size: $fontSizeD;
+    letter-spacing: 0;
+    line-height: 1.625;
+
+    @include phone {
+      font-size: $fontSizeM;
+      letter-spacing: px2rem(1);
+      line-height: 1.5;
+    }
+  }
+   
+  .group-sticky .group-header {
+    position: fixed;
+    top: $navbarHeight + $storeHeaderDHeight + $storeHeaderDPadding;
+  }
+}

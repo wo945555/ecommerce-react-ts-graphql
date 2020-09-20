@@ -1,0 +1,39 @@
+@mixin css3($property, $value) {
+  @each $prefix in -webkit-, -moz-, -o-, -ms-, '' {
+    #{$prefix}#{$property}: $value;
+  }
+}
+
+@mixin clearfix() {
+  &:after {
+    clear: both;
+    content: ' ';
+    display: block;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
+@mixin abs-horizontal-center() {
+  position: absolute;
+  left: 50%;
+  @include css3(transform, translateX(-50%));
+}
+@mixin abs-vertical-center() {
+  position: absolute;
+  top: 50%;
+  @include css3(transform, translateY(-50%));
+}
+
+// media query
+@mixin tablet {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin phone{
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {  Link, useHistory, useLocation } from 'react-router-dom';
 import './StoreHeaderMobile.scss';
-import { Row, Col, Input, Menu, Dropdown, Button, Drawer } from 'antd';
-import { DownOutlined, SearchOutlined } from '@ant-design/icons';
+import { Input, Menu, Dropdown, Button, Drawer } from 'antd';
+import { DownOutlined, UpOutlined, SearchOutlined } from '@ant-design/icons';
 
 const { Search } = Input;
 
@@ -53,8 +53,10 @@ export const StoreHeaderMobile:React.FC<Props> = (props) => {
     </Menu>
   )
 
+  const [showMenu, setShowMenu] = useState(false);
+
   //Search Drawer
-  const defaultSearch = (val:string):void => {
+  const defaultSearch = (val:string) => {
     if(!val) return;
     history.push('/browse', {query: val});
   }
@@ -65,40 +67,44 @@ export const StoreHeaderMobile:React.FC<Props> = (props) => {
   }
 
   return (
-    <div className="store-header-m">
-      <Row align="middle" className="header-wrap">
-        <Col span={20} offset={2} className="header-label-wrap">
-          <Dropdown overlay={menu} trigger={['click']}>
-            <h2 className="header-label"> 
-              <span>{selected} </span>
-              <DownOutlined />
-            </h2>
-          </Dropdown>        
-        </Col>
-        
-        <Col span={2}>
-          <Button shape="circle"
-           icon={<SearchOutlined />}
-           onClick={() => showDrawer()} />
-        </Col>
-        <Drawer
-          className="header-search-drawer"
-          placement="top"
-          onClose={() => setVisible(false)}
-          visible={visible}
-          getContainer={false}
-        >
-          <Search
-            className="header-search"
-            placeholder="search"
-            defaultValue={defaultValue}
-            allowClear={true}
-            onSearch={onSearch
-              ? (val) => onSearch(val)
-              : (val) => defaultSearch(val)}
-          />
-        </Drawer>  
-      </Row>
-    </div>    
+    <nav className="store-header-m">
+      <div className="header-label-wrap">
+        <Dropdown 
+         overlay={menu}
+         trigger={['click']}
+         onVisibleChange={(visible) => {
+           console.log(visible);
+          setShowMenu(visible)
+         }}>
+          <h2 className="header-label"> 
+            <span>{selected} </span>
+            {showMenu? <UpOutlined />: <DownOutlined />}
+          </h2>
+        </Dropdown>        
+      </div >
+      
+      <div className="header-search-icon">
+        <Button shape="circle"
+          icon={<SearchOutlined />}
+          onClick={() => showDrawer()} />
+      </div>
+      <Drawer
+        className="header-search-drawer"
+        placement="top"
+        onClose={() => setVisible(false)}
+        visible={visible}
+        getContainer={false}
+      >
+        <Search
+          className="header-search"
+          placeholder="search"
+          defaultValue={defaultValue}
+          allowClear={true}
+          onSearch={onSearch
+            ? (val) => onSearch(val)
+            : (val) => defaultSearch(val)}
+        />
+      </Drawer>
+    </nav>    
   )
 }
